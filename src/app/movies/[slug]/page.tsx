@@ -1,12 +1,11 @@
 import { notFound } from "next/navigation";
-import { movies } from "@/data/movies";
-import { getMovieBySlug, getRelatedMovies } from "@/lib/movies";
 import { AppWindow } from "@/components/os/AppWindow";
-import { MovieDetail } from "@/components/movies/MovieDetail";
-import { RelatedMovies } from "@/components/movies/RelatedMovies";
+import { getMovies, getMovieBySlug, getRelatedMovies } from "@/features/movies";
+import { MovieDetail } from "@/features/movies/components/MovieDetail";
+import { RelatedMovies } from "@/features/movies/components/RelatedMovies";
 
 export function generateStaticParams() {
-  return movies.map((movie) => ({ slug: movie.slug }));
+  return getMovies().map((movie) => ({ slug: movie.slug }));
 }
 
 export default async function MovieDetailPage({
@@ -22,7 +21,7 @@ export default async function MovieDetailPage({
   const related = getRelatedMovies(movie);
 
   return (
-    <AppWindow title={movie.title} backHref="/movies" backLabel="Movies">
+    <AppWindow title={movie.title} backHref="/movies/gallery" backLabel="Gallery">
       <MovieDetail movie={movie} />
       <RelatedMovies movies={related} />
     </AppWindow>

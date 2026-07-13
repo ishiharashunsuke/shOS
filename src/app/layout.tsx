@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Fraunces } from "next/font/google";
-import { GrainOverlay } from "@/components/layout/GrainOverlay";
+import { GrainOverlay } from "@/components/os/GrainOverlay";
 import { BootGate } from "@/components/os/BootGate";
 import { TopBar } from "@/components/os/TopBar";
+import { ThemeSync } from "@/components/os/ThemeSync";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -37,6 +38,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} antialiased`}
       >
         <GrainOverlay />
+        <ThemeSync />
         <BootGate>
           <TopBar />
           {children}

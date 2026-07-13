@@ -1,32 +1,31 @@
 import {
+  Home,
   Film,
-  Boxes,
+  Gauge,
+  CircleDot,
   FlaskConical,
-  Newspaper,
+  BookOpen,
+  NotebookPen,
+  Boxes,
   UserRound,
-  SquareTerminal,
-  type LucideIcon,
+  Settings,
 } from "lucide-react";
-
-export type DesktopApp = {
-  id: string;
-  label: string;
-  icon: LucideIcon;
-  /** Present when the app is actually navigable. */
-  href?: string;
-  /** Shown as a coming-soon icon when no href is set. */
-  comingSoon?: boolean;
-};
+import type { DesktopApp } from "@/types/apps";
 
 /**
  * Single source of truth for every app shown on the Desktop
  * and referenced by TopBar for the current-app label.
+ * Data only — no display/ordering logic belongs here (that's Desktop.tsx's job).
  */
 export const apps: DesktopApp[] = [
-  { id: "movies", label: "Movies", icon: Film, href: "/movies" },
-  { id: "projects", label: "Projects", icon: Boxes, comingSoon: true },
-  { id: "lab", label: "Lab", icon: FlaskConical, comingSoon: true },
-  { id: "blog", label: "Blog", icon: Newspaper, comingSoon: true },
-  { id: "about", label: "About", icon: UserRound, comingSoon: true },
-  { id: "terminal", label: "Terminal", icon: SquareTerminal, comingSoon: true },
+  { id: "home", label: "Home", icon: Home, href: "/home" },
+  { id: "movies", label: "Movies", icon: Film, href: "/movies", theme: "movies" },
+  { id: "f1", label: "F1", icon: Gauge, href: "/f1" },
+  { id: "football", label: "Football", icon: CircleDot, href: "/football" },
+  { id: "ai-lab", label: "AI Lab", icon: FlaskConical, href: "/ai-lab" },
+  { id: "books", label: "Books", icon: BookOpen, href: "/books" },
+  { id: "journal", label: "Journal", icon: NotebookPen, href: "/journal" },
+  { id: "projects", label: "Projects", icon: Boxes, href: "/projects" },
+  { id: "about", label: "About", icon: UserRound, href: "/about" },
+  { id: "settings", label: "Settings", icon: Settings, href: "/settings" },
 ];

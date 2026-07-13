@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import type { DesktopApp } from "@/data/apps";
+import type { DesktopApp } from "@/types/apps";
 import { ComingSoonToast } from "./ComingSoonToast";
 
 const TOAST_DURATION_MS = 1600;
